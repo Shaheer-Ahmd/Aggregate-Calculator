@@ -1,0 +1,139 @@
+*{
+  font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background-color: grey;  
+  display:flex;
+  flex-direction: row;
+  align-items:center;
+  justify-content:center;
+}
+
+body>*{
+  width:80%;
+  
+}
+
+.Main{
+  display:flex;
+  flex-direction:column; 
+  justify-content:center;
+  align-items:center;
+  background-color: rgb(0, 0, 0);  
+  width:100%;
+  border-radius: 20px;
+}
+
+.Heading{
+  font-size: 15px;
+  
+  font-weight:900;
+  color:white;
+  margin-bottom: 20px;
+}
+.Components{
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
+}
+.Component {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+
+hr{
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, grey,white,grey);
+    width: 100%;
+    margin-top:15px;
+    margin-bottom:15px;
+}
+
+.inputs{
+display:flex;
+flex-direction:row;
+align-items:center;
+justify-content:space-evenly;  
+
+}
+
+.inputstyle{
+  border-radius: 5px;
+  background-color: gray;
+  height:50px;
+  color:white;
+  font-size: 20px;
+  font-weight:900;
+}
+
+.inputstyle:focus{
+  outline: none;
+}
+.inputstyle::placeholder{
+  color:white;
+  font-size: 20px;
+  font-weight:900;
+  font-style: italic;
+}
+
+.label {
+  color:white;
+  font-size: 20px;
+  font-weight:900;
+  font-style: italic;
+  margin:0;
+  padding:0;
+}
+
+.inputstyle::-webkit-outer-spin-button,
+.inputstyle::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input{
+  display:flex;
+  flex-direction:column;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+button{
+  border-radius: 5px;
+  background-color: gray;
+  height:50px;
+  color:white;
+  font-size: 20px;
+  font-weight:900;
+  width:30%;
+  margin-top:20px;
+  
+}
+button:hover{
+  background-color: rgb(74, 72, 72);
+  cursor: pointer;
+}
+
+.beforecalculation {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+}
+
+.rowflex {
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:space-evenly;
+  width:100%;
+}
