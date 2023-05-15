@@ -10,8 +10,8 @@ export default function App() {
       Weightage: 0,
       Occurence: 0,
       Name: "",
-      Obtainedmarks: 0,
-      Totalmarks: 0,
+      Obtainedmarks: [0],
+      Totalmarks: [0],
     },
   ]);
   const components = componentsdata.map((componentdata) => (
@@ -21,6 +21,8 @@ export default function App() {
       id={componentdata.id}
       Weightage={componentdata.Weightage}
       Occurence={componentdata.Occurence}
+      Obtainedmarks={componentdata.Obtainedmarks}
+      Totalmarks={componentdata.Totalmarks}
       setComponentsdata={setComponentsdata}
     />
   ));
@@ -42,29 +44,45 @@ export default function App() {
     />
   ));
   const [submitted, setSubmitted] = useState(false);
-  console.log("rendered!");
+
   useEffect(() => {
     if (submitted) {
-      let totalweightage = 0;
       let total = 0;
+      let totalweightage = 0;
       componentsdata.forEach((componentdata) => {
-        totalweightage += Number(componentdata.Weightage);
-        total +=
-          (componentdata.Obtainedmarks / componentdata.Totalmarks) *
-          componentdata.Weightage;
-        console.log(totalweightage);
-      });
-      if (totalweightage / 100 === 1) {
-        setAggregate(total);
-      } else {
-        alert("Total weightage should be 100");
-      }
+        totalweightage += Number(componentdata.Weightage)
+        componentdata.Obtainedmarks.forEach((element, index) => {
+          total +=
+            (element / componentdata.Totalmarks[index]) *
+            (componentdata.Weightage/componentdata.Occurence);
+          });});
+        if (totalweightage == 100) {
+          setAggregate(total);
+        } else {
+          alert("The Total Weightage Must be 100%!");
+        }
+      ;
     }
   }, [submitted]);
 
+  function Reset() {
+    setComponentsdata([
+      {
+        id: nanoid(),
+        Weightage: 0,
+        Occurence: 0,
+        Name: "",
+        Obtainedmarks: [0],
+        Totalmarks: [0],
+      },
+    ]);
+    setSubmitted(false);
+    setDone(false);
+  }
+
   return (
     <div className="Main">
-      <h1 className="Heading">{JSON.stringify(componentsdata)}</h1>
+      <h1 className="Heading">Aggregate Calculator</h1>
       {!done ? (
         <div className="beforecalculation">
           <div className="Components">{components}</div>
@@ -78,8 +96,8 @@ export default function App() {
                     Weightage: 0,
                     Occurence: 0,
                     Name: "",
-                    Obtainedmarks: 0,
-                    Totalmarks: 0,
+                    Obtainedmarks: [0],
+                    Totalmarks: [0],
                   },
                 ])
               }
@@ -97,7 +115,10 @@ export default function App() {
       ) : (
         <div>
           <div>{aftercalculations}</div>
+          <div className = "rowflex">
           <button onClick={() => setSubmitted((p) => !p)}>Calculate</button>
+          {submitted ? (<button onClick = {Reset}>Reset</button>):(<div></div>)}
+          </div>
         </div>
       )}
       {submitted && (
