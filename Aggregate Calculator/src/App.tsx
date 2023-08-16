@@ -126,6 +126,7 @@ export default function App() {
           Your aggregate is: {aggregate.toPrecision(4)}%{" "}
         </p>
       )}
+      <p> Made by Shaheer Ahmad</p>
     </div>
   );
 }

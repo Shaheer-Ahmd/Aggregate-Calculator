@@ -32,14 +32,14 @@ export default function Component(props: {
                   length:
                     name === "Occurence" ? Number(value) : props.Occurence,
                 },
-                (_, i) => 0
+                (_) => 0
               ),
               ["Totalmarks"]: Array.from(
                 {
                   length:
                     name === "Occurence" ? Number(value) : props.Occurence,
                 },
-                (_, i) => 0
+                (_) => 0
               ),
             }
           : componentdata

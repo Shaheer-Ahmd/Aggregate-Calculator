@@ -30,7 +30,7 @@ export default function (props: {
   ) {
     const { name, value } = event.target;
     props.setComponentsdata((prevarray) =>
-      prevarray.map((componentdata, index) =>
+      prevarray.map((componentdata) =>
         props.id === componentdata.id
           ? {
               ...componentdata,
